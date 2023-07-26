@@ -1,7 +1,6 @@
 package com.training.micro.service.valiidation;
 
 
-import com.training.micro.service.rest.models.Address;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

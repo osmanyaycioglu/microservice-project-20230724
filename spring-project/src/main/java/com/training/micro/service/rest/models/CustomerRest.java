@@ -8,7 +8,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class Customer {
+public class CustomerRest {
     @NotNull
     @NotEmpty
     @Size(min = 2,max = 15,message = "isim böyle olmaz {min} ile {max} arasında bunu bana ver")
@@ -34,5 +34,5 @@ public class Customer {
     private String password;
 
     @Valid
-    private Address address;
+    private AddressRest address;
 }

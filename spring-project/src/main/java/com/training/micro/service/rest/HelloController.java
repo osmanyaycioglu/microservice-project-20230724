@@ -1,16 +1,14 @@
 package com.training.micro.service.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.training.micro.service.rest.models.Customer;
+import com.training.micro.service.rest.models.CustomerRest;
 import com.training.micro.service.rest.models.HelloResponse;
 import com.training.micro.service.valiidation.NotContainsStr;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -72,12 +70,12 @@ public class HelloController {
     }
 
     @PostMapping("/hello8")
-    public String hello8(@RequestBody Customer customerParam) {
+    public String hello8(@RequestBody CustomerRest customerParam) {
         return "Hello 8 " + customerParam;
     }
 
     @PostMapping("/hello9")
-    public HelloResponse hello9(@RequestBody Customer customerParam) {
+    public HelloResponse hello9(@RequestBody CustomerRest customerParam) {
         return HelloResponse.builder()
                             .withCounter(10)
                             .withDescription("Customer eklendi")
@@ -87,7 +85,7 @@ public class HelloController {
     }
 
     @PostMapping("/hello10")
-    public ResponseEntity<HelloResponse> hello10(@RequestBody Customer customerParam) {
+    public ResponseEntity<HelloResponse> hello10(@RequestBody CustomerRest customerParam) {
         return ResponseEntity.status(217)
                              .header("rest-reponse",
                                      "osman")
@@ -108,8 +106,8 @@ public class HelloController {
             }
             case "suspend" -> {
                 ObjectMapper objectMapperLoc = new ObjectMapper();
-                Customer customerLoc = objectMapperLoc.readValue(httpServletRequestParam.getInputStream(),
-                                                                 Customer.class);
+                CustomerRest customerLoc = objectMapperLoc.readValue(httpServletRequestParam.getInputStream(),
+                                                                     CustomerRest.class);
             }
         }
         return ResponseEntity.status(217)

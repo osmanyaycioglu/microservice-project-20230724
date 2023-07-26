@@ -1,6 +1,6 @@
 package com.training.micro.service.rest;
 
-import com.training.micro.service.rest.models.Customer;
+import com.training.micro.service.rest.models.CustomerQuery;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,13 +13,13 @@ import java.util.List;
 public class CustomerQueryController {
 
     @GetMapping("/by/customerId")
-    public Customer findCustomer(@RequestParam("cid") Long customerId){
+    public CustomerQuery findCustomer(@RequestParam("cid") Long customerId){
         return null;
     }
 
 
     @GetMapping("/all")
-    public List<Customer> findAllCustomers(){
+    public List<CustomerQuery> findAllCustomers(){
         return null;
     }
 
