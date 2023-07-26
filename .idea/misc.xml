@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/spring-project/pom.xml" />
         <option value="$PROJECT_DIR$/node-discovery/pom.xml" />
         <option value="$PROJECT_DIR$/node-configuration/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-order/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-kitchen/pom.xml" />
       </list>
     </option>
   </component>
