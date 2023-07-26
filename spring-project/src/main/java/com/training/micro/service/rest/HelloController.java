@@ -3,6 +3,7 @@ package com.training.micro.service.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.training.micro.service.rest.models.Customer;
 import com.training.micro.service.rest.models.HelloResponse;
+import com.training.micro.service.valiidation.NotContainsStr;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -59,7 +60,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello6")
-    public String hello6(@RequestParam("name") String name,
+    public String hello6(@NotContainsStr({"abc"}) @RequestParam("name") String name,
                          @RequestParam("surname") String surname) {
         return "Hello world 6 " + name + " " + surname;
     }
