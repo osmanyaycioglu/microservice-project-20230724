@@ -1,0 +1,39 @@
+server:
+  port: ${PORT:10000}
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      retry:
+        initial-interval: 100
+        max-attempts: 3
+    loadbalancer:
+      retry:
+        enabled: true
+        max-retries-on-next-service-instance: 3
+        max-retries-on-same-service-instance: 0
+        retry-on-all-operations: true
+  config:
+    import: configserver:http://127.0.0.1:8888
+resilience4j:
+  retry:
+    instances:
+      retyXyz:
+        max-attempts: 3
+        wait-duration: '100ms'
+        retry-exception-predicate: com.training.micro.service.order.resilience.ChooseRety
+        result-predicate: com.training.micro.service.order.resilience.KitchenResultPredicate
+  circuitbreaker:
+    instances:
+      kitchencb:
+        sliding-window-type: count_based
+        sliding-window-size: 20
+        minimum-number-of-calls: 10
+        failure-rate-threshold: 30
+        wait-duration-in-open-state: '5s'
+        automatic-transition-from-open-to-half-open-enabled: false
+        permitted-number-of-calls-in-half-open-state: 5
+        max-wait-duration-in-half-open-state: '5s'
+        slow-call-duration-threshold: '10ms'
+        slow-call-rate-threshold: 60
