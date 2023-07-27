@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/node-configuration/pom.xml" />
         <option value="$PROJECT_DIR$/ms-order/pom.xml" />
         <option value="$PROJECT_DIR$/ms-kitchen/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-kitchen-api/pom.xml" />
       </list>
     </option>
   </component>

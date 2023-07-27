@@ -1,4 +1,4 @@
-package com.training.micro.service.kitchen.rest.models;
+package com.training.micro.service.order.rest.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,10 @@ import java.time.LocalDateTime;
 @Data
 @Builder(setterPrefix = "with")
 @AllArgsConstructor
-public class ReservationStatus {
-    private String reservationId;
-    private LocalDateTime reservationEnds;
+public class OrderResponse {
     private String orderId;
+    private LocalDateTime deliveryTime;
 
-    public ReservationStatus() {
+    public OrderResponse() {
     }
 }

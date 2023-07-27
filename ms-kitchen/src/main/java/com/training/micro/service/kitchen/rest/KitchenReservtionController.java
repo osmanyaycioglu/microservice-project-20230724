@@ -1,25 +1,26 @@
 package com.training.micro.service.kitchen.rest;
 
-import com.training.micro.service.kitchen.rest.models.ReservationInfo;
-import com.training.micro.service.kitchen.rest.models.ReservationStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.training.micro.service.kitchen.api.IKitchenReservationApi;
+import com.training.micro.service.kitchen.api.models.ReservationInfo;
+import com.training.micro.service.kitchen.api.models.ReservationStatus;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/kitchen/reservation")
-public class KitchenReservtionController {
+public class KitchenReservtionController implements IKitchenReservationApi {
 //    private List<ReservationInfo> reservationInfos = Collections.synchronizedList(new ArrayList<>());
 //    private AtomicInteger         counter          = new AtomicInteger();
 //    private Map<String,ReservationInfo> stringReservationInfoMap = new ConcurrentHashMap<>(1_000_000,0.9F,1_000);
 
-    public ReservationStatus reserveMeal(ReservationInfo reservationInfoParam) {
+    @Value("${server.port}")
+    private int port;
+
+    public ReservationStatus reserveMeal(@RequestBody ReservationInfo reservationInfoParam) {
 //        Lock lockLoc = new ReentrantLock(true);
 //
 //        synchronized (counter){
@@ -36,7 +37,13 @@ public class KitchenReservtionController {
                                 .withReservationEnds(LocalDateTime.now()
                                                                   .plusHours(1))
                                 .withOrderId(reservationInfoParam.getOrderId())
+                                .withDesc("My port : " + port)
                                 .build();
+    }
+
+    public String testMethod(@RequestParam("name") String name,
+                             @RequestParam("sname") String surname) {
+        return "Test " + name + " " + surname;
     }
 
 }
