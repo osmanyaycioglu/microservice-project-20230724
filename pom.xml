@@ -15,6 +15,9 @@
     <module>node-discovery</module>
     <module>node-configuration</module>
     <module>ms-order</module>
+    <module>ms-kitchen-api</module>
+    <module>ms-kitchen</module>
+    <module>ms-notify</module>
   </modules>
 
   <properties>

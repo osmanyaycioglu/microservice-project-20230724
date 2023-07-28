@@ -1,0 +1,33 @@
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+server:
+    error:
+        include-binding-errors: always
+        include-exception: true
+        include-message: always
+        include-stacktrace: always
+    shutdown: graceful
+    port: ${PORT:12000}
+spring:
+    application:
+        name: customer
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: 123456
+        url: jdbc:postgresql://localhost:5432/playground
+        username: postgres
+    jpa:
+        database: POSTGRESQL
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQL94Dialect
+                format_sql: true
+                show_sql: true

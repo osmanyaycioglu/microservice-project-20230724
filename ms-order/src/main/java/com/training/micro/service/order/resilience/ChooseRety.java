@@ -9,11 +9,11 @@ public class ChooseRety implements Predicate<Throwable> {
 
     @Override
     public boolean test(final Throwable throwableParam) {
-        if (throwableParam instanceof RestClientResponseException){
+        if (throwableParam instanceof RestClientResponseException) {
             RestClientResponseException rcre = (RestClientResponseException) throwableParam;
             return true;
         }
-        return false;
+        return true;
     }
 
 }

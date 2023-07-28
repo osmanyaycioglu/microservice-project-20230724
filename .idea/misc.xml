@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/ms-order/pom.xml" />
         <option value="$PROJECT_DIR$/ms-kitchen/pom.xml" />
         <option value="$PROJECT_DIR$/ms-kitchen-api/pom.xml" />
+        <option value="$PROJECT_DIR$/api-restaurant/pom.xml" />
       </list>
     </option>
   </component>

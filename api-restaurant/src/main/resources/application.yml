@@ -1,0 +1,26 @@
+server:
+    port: ${PORT:9090}
+spring:
+    application:
+        name: api-restaurant
+    config:
+        import: configserver:http://127.0.0.1:8888
+    cloud:
+        discovery:
+            enabled: true
+        gateway:
+            enabled: true
+            discovery:
+              locator:
+                  enabled: true
+            routes:
+            - id: kitchen_route
+              uri: lb://KITCHEN
+              predicates:
+              - Path=/api/*/kitchen/**
+            - id: customer_route
+              uri: lb://CUSTOMER
+              predicates:
+              - Path=/api/*/customer/**
+
+
