@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/ms-kitchen/pom.xml" />
         <option value="$PROJECT_DIR$/ms-kitchen-api/pom.xml" />
         <option value="$PROJECT_DIR$/api-restaurant/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka-producer/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka-consumer/pom.xml" />
       </list>
     </option>
   </component>

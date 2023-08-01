@@ -1,0 +1,7 @@
+osman,yaycioglu,osmanyay,123456,TL#10000#otl;DOLAR#2000#odolar,PLATINUM
+ali,veli,aliv,123456,DOLAR#10000#dolar,NORMAL
+osman2,yaycioglu2,osmanyay2,123456,EURO#10000#abc;DOLAR#1000#sag;TL#2300#sa,GOLD
+osman3,yaycioglu3,osmanyay3,123456,TL#13000#adsd,GOLD
+osman4,yaycioglu4,osmanyay4,123456,TL#14000#as,GOLD
+osman5,yaycioglu5,osmanyay5,123456,TL#15000#we,GOLD
+osman6,yaycioglu6,osmanyay6,123456,TL#16000#re,GOLD

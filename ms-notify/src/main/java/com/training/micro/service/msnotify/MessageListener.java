@@ -26,29 +26,34 @@ public class MessageListener {
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(name = "sms-tr-message-q",durable = "true",autoDelete = "false"),
-            exchange = @Exchange(name = "message-topic-exchange",durable = "true",autoDelete = "false",type = ExchangeTypes.TOPIC),
+            value = @Queue(name = "sms-tr-message-q", durable = "true", autoDelete = "false"),
+            exchange = @Exchange(
+                    name = "message-topic-exchange",
+                    durable = "true",
+                    autoDelete = "false",
+                    type = ExchangeTypes.TOPIC
+            ),
             key = "send.sms.#"
     ))
-    public void handleTopicSMS(NotifyMessage message){
+    public void handleTopicSMS(NotifyMessage message) {
         System.out.println("Received Topic SMS : " + message);
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(name = "email-tr-message-q",durable = "true",autoDelete = "false"),
-            exchange = @Exchange(name = "message-topic-exchange",durable = "true",autoDelete = "false",type = ExchangeTypes.TOPIC),
+            value = @Queue(name = "email-tr-message-q", durable = "true", autoDelete = "false"),
+            exchange = @Exchange(name = "message-topic-exchange", durable = "true", autoDelete = "false", type = ExchangeTypes.TOPIC),
             key = "send.email.#"
     ))
-    public void handleTopicEmail(NotifyMessage message){
+    public void handleTopicEmail(NotifyMessage message) {
         System.out.println("Received Topic EMAIL : " + message);
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(name = "all-tr-message-q",durable = "true",autoDelete = "false"),
-            exchange = @Exchange(name = "message-topic-exchange",durable = "true",autoDelete = "false",type = ExchangeTypes.TOPIC),
+            value = @Queue(name = "all-tr-message-q", durable = "true", autoDelete = "false"),
+            exchange = @Exchange(name = "message-topic-exchange", durable = "true", autoDelete = "false", type = ExchangeTypes.TOPIC),
             key = "send.#"
     ))
-    public void handleAll(NotifyMessage message){
+    public void handleAll(NotifyMessage message) {
         System.out.println("Received All EMAIL : " + message);
     }
 
